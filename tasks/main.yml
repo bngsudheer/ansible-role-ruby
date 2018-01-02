@@ -1,0 +1,24 @@
+---
+# tasks file for ansible-role-ruby
+- name: Install the dependencies
+  yum:
+    state: installed
+    name: "{{ item }}"
+  with_items:
+    - centos-release-scl
+
+- name: Enable rhel-server-rhcscl-7-rpms repository
+  shell: yum-config-manager --enable rhel-server-rhscl-7-rpms
+
+- name: install rh-ruby22
+  yum:
+    name: rh-ruby22
+
+- name: profile script to enable ruby22
+  template:
+    src: etc/profile.d/enableruby22.sh
+    dest: /etc/profile.d/
+
+# yum-config-manager --enable rhel-server-rhscl-7-rpms
+# yum install rh-ruby22
+# ruby profile
