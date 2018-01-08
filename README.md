@@ -1,7 +1,7 @@
 Role Name
 =========
 
-Install Ruby 2.2 on CentOS7. The role utilizes Red Hat software collections.
+Install Ruby 2.2 on CentOS 7. The role utilizes Red Hat software collections.
 
 Requirements
 ------------
@@ -35,5 +35,6 @@ Author Information
 ------------------
 
 Sudheer Satyanarayana.
-Twitter - https://twitter.com/bngsudheer
-GitHub - https://github.com/bngsudheer
+* [Twitter](https://twitter.com/bngsudheer)
+* [GitHub](https://github.com/bngsudheer)
+* [Work](https://www.gavika.com/)
