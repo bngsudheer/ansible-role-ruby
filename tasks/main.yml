@@ -18,7 +18,3 @@
   template:
     src: etc/profile.d/enableruby22.sh
     dest: /etc/profile.d/
-
-# yum-config-manager --enable rhel-server-rhscl-7-rpms
-# yum install rh-ruby22
-# ruby profile
