@@ -20,6 +20,8 @@ script:
 
   # Run tests.
   - ${PWD}/tests/test.sh
-
+  
+  # Make sure ruby exists
+  - docker exec --tty ${container_id} env TERM=xterm /bin/sh -c 'source /etc/profile.d/enableruby24.sh && which ruby'
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
