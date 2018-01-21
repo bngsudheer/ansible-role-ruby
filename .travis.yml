@@ -1,6 +1,11 @@
 ---
+sudo: required
+language: python
 services:
    - docker
+install:
+   - pip install molecule
+   - pip install docker
 env:
    - distro: centos7
      playbook: test.yml
@@ -23,5 +28,8 @@ script:
 
    # Make sure ruby exists
    - docker exec --tty ${container_id} env TERM=xterm /bin/sh -c 'source /etc/profile.d/enableruby24.sh && which ruby'
+   # In addition to above test, run molecule tests
+   - molecule test
+
 notifications:
    webhooks: https://galaxy.ansible.com/api/v1/notifications/
