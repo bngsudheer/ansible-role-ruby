@@ -25,7 +25,7 @@ scenario:
     - lint
     - side_effect
     - verify
-    # - destroy
+    - destroy
 verifier:
   name: testinfra
   options:
