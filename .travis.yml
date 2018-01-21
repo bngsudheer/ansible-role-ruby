@@ -1,27 +1,27 @@
 ---
 services:
-  - docker
+   - docker
 env:
-  - distro: centos7
-    playbook: test.yml
+   - distro: centos7
+     playbook: test.yml
 
 branches:
-  only:
-  - master
+   only:
+      - master
 
 script:
-  # Configure test script so we can run extra tests after playbook is run.
-  - export container_id=$(date +%s)
-  - export cleanup=false
+   # Configure test script so we can run extra tests after playbook is run.
+   - export container_id=$(date +%s)
+   - export cleanup=false
 
-  # Download test shim.
-  - wget -O ${PWD}/tests/test.sh https://gist.githubusercontent.com/geerlingguy/73ef1e5ee45d8694570f334be385e181/raw/
-  - chmod +x ${PWD}/tests/test.sh
+   # Download test shim.
+   - wget -O ${PWD}/tests/test.sh https://gist.githubusercontent.com/geerlingguy/73ef1e5ee45d8694570f334be385e181/raw/
+   - chmod +x ${PWD}/tests/test.sh
 
-  # Run tests.
-  - ${PWD}/tests/test.sh
-  
-  # Make sure ruby exists
-  - docker exec --tty ${container_id} env TERM=xterm /bin/sh -c 'source /etc/profile.d/enableruby24.sh && which ruby'
+   # Run tests.
+   - ${PWD}/tests/test.sh
+
+   # Make sure ruby exists
+   - docker exec --tty ${container_id} env TERM=xterm /bin/sh -c 'source /etc/profile.d/enableruby24.sh && which ruby'
 notifications:
-  webhooks: https://galaxy.ansible.com/api/v1/notifications/
+   webhooks: https://galaxy.ansible.com/api/v1/notifications/
