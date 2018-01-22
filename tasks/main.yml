@@ -43,6 +43,7 @@
   yum:
     name: rh-ruby24
   when: ruby_version == 2.4
+  register: rh_ruby_24
 
 - name: profile script to enable specified ruby version
   template:
