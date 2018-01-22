@@ -12,11 +12,6 @@
   shell: yum-config-manager --enable rhel-server-rhscl-7-rpms
   when: ansible_distribution == 'Red Hat Enterprise Linux'
 
-- name: Show ruby_version
-  debug:
-    msg: "{{ ruby_version }}"
-    verbosity: 3
-
 - name: install rh-ruby22
   yum:
     name: rh-ruby22
