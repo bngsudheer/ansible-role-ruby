@@ -1,3 +1,4 @@
 tests/test.sh
 *.retry
 *.pyc
+molecule/default/.molecule/

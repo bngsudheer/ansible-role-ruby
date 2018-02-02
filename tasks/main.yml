@@ -1,5 +1,4 @@
 ---
-# tasks file for ansible-role-ruby
 - name: Install the dependencies
   yum:
     state: installed
@@ -14,7 +13,11 @@
 
 - name: install rh-ruby22
   yum:
-    name: rh-ruby22
+    name: "{{ item }}"
+  with_items:
+    - rh-ruby22
+    - rh-ruby22-scldevel
+    - rh-ruby22-ruby-devel
   when: ruby_version == 2.2
 
 - name: profile script to enable specified ruby version
@@ -25,7 +28,11 @@
 
 - name: install rh-ruby23
   yum:
-    name: rh-ruby23
+    name: "{{ item }}"
+  with_items:
+    - rh-ruby23
+    - rh-ruby23-scldevel
+    - rh-ruby23-ruby-devel
   when: ruby_version == 2.3
 
 - name: profile script to enable specified ruby version
@@ -36,7 +43,11 @@
 
 - name: install rh-ruby24
   yum:
-    name: rh-ruby24
+    name: "{{ item }}"
+  with_items:
+    - rh-ruby24
+    - rh-ruby24-scldevel
+    - rh-ruby24-ruby-devel
   when: ruby_version == 2.4
   register: rh_ruby_24
 
