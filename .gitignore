@@ -2,3 +2,4 @@ tests/test.sh
 *.retry
 *.pyc
 molecule/default/.molecule/
+molecule/**/tests/__pycache__

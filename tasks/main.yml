@@ -7,9 +7,9 @@
     - centos-release-scl
   when: ansible_distribution == 'CentOS'
 
-- name: Enable rhel-server-rhcscl-7-rpms repository
-  shell: yum-config-manager --enable rhel-server-rhscl-7-rpms
-  when: ansible_distribution == 'Red Hat Enterprise Linux'
+# - name: Enable rhel-server-rhcscl-7-rpms repository
+#   shell: yum-config-manager --enable rhel-server-rhscl-7-rpms
+#   when: ansible_distribution == 'Red Hat Enterprise Linux'
 
 - name: install rh-ruby22
   yum:
