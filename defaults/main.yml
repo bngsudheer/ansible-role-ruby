@@ -1,8 +1,8 @@
 ---
 # defaults file for ansible-role-ruby
 ruby_version: 2.4
-ruby_script_name: '' # Will be set in task dynamically
-ruby_prefix: '' # Will be set in task dynamically
+ruby_script_name: ''  # Will be set in task dynamically
+ruby_prefix: ''  # Will be set in task dynamically
 ruby_version_script_mapping:
   - version: 2.2
     prefix: rh-ruby22
