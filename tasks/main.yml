@@ -1,58 +1,33 @@
 ---
 - name: Install the dependencies
   yum:
-    state: installed
-    name: "{{ item }}"
-  with_items:
-    - centos-release-scl
+    name:
+      - centos-release-scl
   when: ansible_distribution == 'CentOS'
 
-# - name: Enable rhel-server-rhcscl-7-rpms repository
-#   shell: yum-config-manager --enable rhel-server-rhscl-7-rpms
-#   when: ansible_distribution == 'Red Hat Enterprise Linux'
+- name: Set script name and prefix
+  set_fact:
+    ruby_script_name: "{{ item.script }}"
+    ruby_prefix: "{{ item.prefix }}"
+  when: item.version == ruby_version
+  loop: "{{ ruby_version_script_mapping }}"
 
-- name: install rh-ruby22
+- name: Install specified Ruby version
   yum:
-    name: "{{ item }}"
-  with_items:
-    - rh-ruby22
-    - rh-ruby22-scldevel
-    - rh-ruby22-ruby-devel
-  when: ruby_version == 2.2
+    name:
+      - "{{ ruby_prefix }}"
+      - "{{ ruby_prefix }}-scldevel"
+      - "{{ ruby_prefix }}-ruby-devel"
 
-- name: profile script to enable specified ruby version
+- name: Global profile script to enable specified ruby version
   template:
-    src: etc/profile.d/enableruby22.sh
+    src: "etc/profile.d/{{ ruby_script_name }}"
     dest: /etc/profile.d/
-  when: ruby_version == 2.2
+  when: ruby_install_globally
 
-- name: install rh-ruby23
-  yum:
-    name: "{{ item }}"
-  with_items:
-    - rh-ruby23
-    - rh-ruby23-scldevel
-    - rh-ruby23-ruby-devel
-  when: ruby_version == 2.3
-
-- name: profile script to enable specified ruby version
-  template:
-    src: etc/profile.d/enableruby23.sh
-    dest: /etc/profile.d/
-  when: ruby_version == 2.3
-
-- name: install rh-ruby24
-  yum:
-    name: "{{ item }}"
-  with_items:
-    - rh-ruby24
-    - rh-ruby24-scldevel
-    - rh-ruby24-ruby-devel
-  when: ruby_version == 2.4
-  register: rh_ruby_24
-
-- name: profile script to enable specified ruby version
-  template:
-    src: etc/profile.d/enableruby24.sh
-    dest: /etc/profile.d/
-  when: ruby_version == 2.4
+- name: Per user profile script to enable specified ruby version
+  lineinfile:
+    path: "/home/{{ item }}/.bash_profile"
+    insertafter: EOF
+    line: "source scl_source enable {{ ruby_prefix }}"
+  loop: "{{ ruby_enable_users }}"

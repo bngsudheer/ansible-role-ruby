@@ -15,15 +15,15 @@ ruby --version
 Requirements
 ------------
 
-None. We recommend using the role [CentOS Base](https://galaxy.ansible.com/bngsudheer/centos_base/).
+None. We recommend using the role [CentOS Base](https://galaxy.ansible.com/bngsudheer/centos_base/) to enable EPEL.
 
 
 Role Variables
 --------------
 
-* ruby_version: 2.4
-
-By default, Ruby 2.4 will be installed and enabled for all users on the system.
+| Variable | Default Value | Description | Required? |
+|----------|---------------|---------|-----------|
+| ruby_version | 2.4 | Ruby version | Yes |
 
 
 Dependencies
