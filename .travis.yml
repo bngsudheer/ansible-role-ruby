@@ -5,7 +5,7 @@ services:
    - docker
 install:
    - pip install molecule
-   - pip install docker-py
+   - pip install docker
 env:
    - distro: centos7
      playbook: test.yml
