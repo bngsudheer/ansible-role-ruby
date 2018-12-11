@@ -32,4 +32,4 @@ verifier:
     verbose: true
   lint:
     name: flake8
-    enabled: False
+    enabled: false
