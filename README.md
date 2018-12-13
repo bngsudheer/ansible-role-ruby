@@ -23,8 +23,9 @@ Role Variables
 
 | Variable | Default Value | Description | Required? |
 |----------|---------------|---------|-----------|
-| ruby_version | 2.4 | Ruby version | Yes |
-
+| ruby_version | 2.4 | Ruby version | No |
+| ruby_install_globally | true | Whether to enable the designated Ruby version to all users | No |
+| ruby_enable_users | [] | Enable the designated Ruby version to specified users | No |
 
 Dependencies
 ------------
