@@ -1,0 +1,12 @@
+---
+- name: Converge
+  hosts: all
+  pre_tasks:
+  - name: install which
+    yum:
+      name: which
+      state: present
+  vars:
+    ruby_version: 2.3
+  roles:
+    - role: ansible-role-ruby

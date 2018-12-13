@@ -1,12 +1,15 @@
 ---
-# defaults file for ansible-role-ruby
 ruby_version: 2.4
+ruby_install_globally: true
+ruby_enable_users: []
+
 ruby_script_name: ''  # Will be set in task dynamically
 ruby_prefix: ''  # Will be set in task dynamically
+
 ruby_version_script_mapping:
   - version: 2.2
-    prefix: rh-ruby22
     script: enableruby22.sh
+    prefix: rh-ruby22
   - version: 2.3
     script: enableruby23.sh
     prefix: rh-ruby23
@@ -16,5 +19,3 @@ ruby_version_script_mapping:
   - version: 2.5
     script: enableruby25.sh
     prefix: rh-ruby25
-ruby_install_globally: true
-ruby_enable_users: []

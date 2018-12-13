@@ -16,7 +16,6 @@ def test_hosts_file(host):
 def test_ruby_24_installed(host):
     ruby = host.package("rh-ruby24")
     assert ruby.is_installed
-    assert ruby.version == "2.4"
 
 def test_ruby_24_available(host):
     ruby = host.check_output('source /etc/profile.d/enableruby24.sh && which ruby')

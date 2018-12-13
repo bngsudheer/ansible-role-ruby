@@ -13,10 +13,10 @@ def test_hosts_file(host):
     assert f.user == 'root'
     assert f.group == 'root'
 
-def test_ruby_25_installed(host):
-    ruby = host.package("rh-ruby25")
+def test_ruby_23_installed(host):
+    ruby = host.package("rh-ruby23")
     assert ruby.is_installed
 
-def test_ruby_25_available(host):
-    ruby = host.check_output('source /etc/profile.d/enableruby25.sh && which ruby')
-    assert ruby == '/opt/rh/rh-ruby25/root/usr/bin/ruby'
+def test_ruby_23_available(host):
+    ruby = host.check_output('source /etc/profile.d/enableruby23.sh && which ruby')
+    assert ruby == '/opt/rh/rh-ruby23/root/usr/bin/ruby'

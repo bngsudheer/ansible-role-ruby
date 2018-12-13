@@ -7,14 +7,13 @@ install:
    - pip install molecule
    - pip install docker
 env:
-   - distro: centos7
-     playbook: test.yml
 
 branches:
    only:
       - master
 
 script:
+   - molecule test --scenario-name ruby23
    - molecule test
    - molecule test --scenario-name ruby25
 
