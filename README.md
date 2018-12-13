@@ -1,7 +1,7 @@
 Role Name
 =========
 
-Install Ruby 2.2, Ruby 2.3 or Ruby 2.4 on CentOS 7. The role utilizes Red Hat software collections.
+Install Ruby 2.2, 2.3, 2.4 or 2.5 on CentOS 7. The role utilizes Red Hat software collections.
 
 Description
 ============
